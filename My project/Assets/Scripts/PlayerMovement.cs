@@ -6,6 +6,8 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private bool grounded=false;
     private CountdownScript countdownScript;
+    [Header("Jump Settings")]
+    [SerializeField] private AudioClip jumpSound; // Sound to play when jumping
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -27,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.UpArrow) && grounded)
         {
             Jump();
-
+            SoundManager.instance.PlaySound(jumpSound); // Play jump sound
         }
         if (moveInput > 0f)
         {
