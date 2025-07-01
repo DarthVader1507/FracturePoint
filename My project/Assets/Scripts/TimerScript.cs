@@ -28,7 +28,6 @@ public class TimerScript : MonoBehaviour
             timeLeft = 60f; // Set the timer for Level 3
             SetDoorSprites(false); // Disable the door sprites at the start of Level 3
             StartCoroutine(DoorTrap()); // Start the repeating trap
-            Debug.Log("Starting DoorTrap coroutine for Level 3");
         }
         countdownScript = FindObjectOfType<CountdownScript>();
         timerText.text = timeLeft.ToString("F2");
@@ -84,7 +83,6 @@ public class TimerScript : MonoBehaviour
 
     private void SetDoorTraps(bool activate)
     {
-        Debug.Log("SetDoorTraps called: " + activate);
         var doors = new Door[]
         {
         doorSpriteRenderer1.gameObject.GetComponentInParent<Door>(),

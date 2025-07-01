@@ -4,12 +4,12 @@ public class Door : MonoBehaviour
 {
     [SerializeField] private Transform previous_room;
     [SerializeField] private Transform next_room;
-    [SerializeField] private CameraControler cam;
     private BoxCollider2D boxCollider;
-
+    private GameObject player;
     private void Awake()
     {
         boxCollider = GetComponent<BoxCollider2D>();
+        player = GameObject.FindWithTag("Player");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -19,16 +19,22 @@ public class Door : MonoBehaviour
             next_room.gameObject.SetActive(true);
         }
     }
-
+    private void Update()
+    {
+        if (player != null && player.transform.position.x > transform.position.x)
+        {
+            previous_room.gameObject.SetActive(false);
+            next_room.gameObject.SetActive(true);
+        }
+    }
     // Call this to activate the trap (block the door)
     public void ActivateTrap()
-{
-    if (boxCollider != null)
     {
-        boxCollider.isTrigger = false; // Door blocks player
-        Debug.Log($" trap activated: isTrigger = {boxCollider.isTrigger}");
+        if (boxCollider != null)
+        {
+            boxCollider.isTrigger = false; // Door blocks player
+        }
     }
-}
 
     // Call this to deactivate the trap (allow passage)
     public void DeactivateTrap()
