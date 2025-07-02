@@ -9,6 +9,7 @@ public class SoundManager : MonoBehaviour
     {
         source = GetComponent<AudioSource>();
         instance = this;
+        DontDestroyOnLoad(gameObject);
     }
     public void PlaySound(AudioClip clip)
     {

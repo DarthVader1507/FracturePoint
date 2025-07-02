@@ -171,4 +171,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0.1
+  activationSound: {fileID: 8300000, guid: 3ff40f99c63674d92a64fa76739305e5, type: 3}
   activeDuration: 2

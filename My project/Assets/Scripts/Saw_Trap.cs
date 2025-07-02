@@ -10,6 +10,7 @@ public class Saw_Trap : MonoBehaviour
     private float leftEdge;
     private float rightEdge;
     private CountdownScript countdownScript;
+    [SerializeField]private AudioClip sawSound;
 
     private void Awake()
     {
@@ -59,6 +60,7 @@ public class Saw_Trap : MonoBehaviour
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(damage);
+                SoundManager.instance.PlaySound(sawSound);
             }
         }
     }

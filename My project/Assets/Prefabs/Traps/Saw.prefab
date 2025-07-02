@@ -172,3 +172,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 3
   movementDistance: 3
+  sawSound: {fileID: 8300000, guid: 1e989c89f83164641b6df2a9a2d8536e, type: 3}

@@ -3,6 +3,7 @@ using UnityEngine;
 public class HealthCollectible : MonoBehaviour
 {
     private float healthValue = 0.1f;
+    [SerializeField]private AudioClip collectSound;
     
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -14,6 +15,7 @@ public class HealthCollectible : MonoBehaviour
                 playerHealth.Heal(healthValue); // Heal the player
                 gameObject.SetActive(false); // Deactivate the collectible after healing
             }
+            SoundManager.instance.PlaySound(collectSound); // Play the collection sound
         }
     }
 }
