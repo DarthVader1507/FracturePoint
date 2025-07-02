@@ -4787,8 +4787,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c6d13937d7c1a4599b9487d9a34b01ab, type: 3}
-  m_Resource: {fileID: 8300000, guid: c6d13937d7c1a4599b9487d9a34b01ab, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7fde5e96a88f6444487cd1916c5b10ad, type: 3}
+  m_Resource: {fileID: 8300000, guid: 7fde5e96a88f6444487cd1916c5b10ad, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.15
   m_Pitch: 1
@@ -10755,6 +10755,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countdownDisplay: {fileID: 1993144657}
   gameStarted: 0
+  goSound: {fileID: 8300000, guid: 13578dfe0683c4158a2ac0aa07b52a28, type: 3}
 --- !u!1 &1994333284
 GameObject:
   m_ObjectHideFlags: 0

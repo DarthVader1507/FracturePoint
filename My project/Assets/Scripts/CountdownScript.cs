@@ -8,6 +8,7 @@ public class CountdownScript : MonoBehaviour
     public Text countdownDisplay;
     
     public bool gameStarted = false;
+    [SerializeField] private AudioClip goSound;
     private void Start()
     {
         gameStarted = false;
@@ -30,7 +31,8 @@ public class CountdownScript : MonoBehaviour
             yield return new WaitForSeconds(1f);
             countdownTime--;
         }
-        countdownDisplay.text = "START!";
+        countdownDisplay.text = "GO!";
+        SoundManager.instance.PlaySound(goSound);
         yield return new WaitForSeconds(1f);
         countdownDisplay.gameObject.SetActive(false);
         gameStarted = true;

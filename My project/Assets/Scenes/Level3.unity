@@ -10196,6 +10196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countdownDisplay: {fileID: 1716543953}
   gameStarted: 0
+  goSound: {fileID: 8300000, guid: 13578dfe0683c4158a2ac0aa07b52a28, type: 3}
 --- !u!114 &1716543953
 MonoBehaviour:
   m_ObjectHideFlags: 0
