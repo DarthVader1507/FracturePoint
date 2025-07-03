@@ -37,5 +37,4 @@ public class CountdownScript : MonoBehaviour
         countdownDisplay.gameObject.SetActive(false);
         gameStarted = true;
     }
-
 }

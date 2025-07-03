@@ -25,7 +25,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        Debug.Log("Jump Boost Count: " + jumpBoost); // Log the current jump boost count for debugging
         if (!countdownScript.gameStarted)
             return; // Prevent movement before countdown
         float moveInput = Input.GetAxis("Horizontal");
@@ -39,7 +38,6 @@ public class PlayerMovement : MonoBehaviour
         {
             if (jumpBoost > 0)
             {
-                Debug.Log("Jump Boost Activated");
                 jumpBoostScript.RemoveBoost(); // Remove a jump boost
                 Jump(10f); // Jump with a force of 10
                 SoundManager.instance.PlaySound(jumpSound); // Play jump sound
