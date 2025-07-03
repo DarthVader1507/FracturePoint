@@ -2,13 +2,21 @@ using UnityEngine;
 using UnityEngine.UI;
 public class JumpBoost : MonoBehaviour
 {
-    [SerializeField] private Text jumpBoostText;
     [SerializeField] private AudioClip collectSound;
+    private UIManager uiManager;
 
+    private void Awake()
+    {
+        uiManager = FindObjectOfType<UIManager>();
+        if (uiManager == null)
+        {
+            Debug.LogError("UIManager not found in the scene.");
+        }
+    }
     public void AddBoost()
     {
         PlayerMovement.jumpBoost += 1;
-        jumpBoostText.text = PlayerMovement.jumpBoost.ToString();
+        uiManager.UpdateJumpBoostText();
     }
 
     public void RemoveBoost()
@@ -16,7 +24,7 @@ public class JumpBoost : MonoBehaviour
         if (PlayerMovement.jumpBoost > 0)
         {
             PlayerMovement.jumpBoost -= 1;
-            jumpBoostText.text = PlayerMovement.jumpBoost.ToString();
+            uiManager.UpdateJumpBoostText();
         }
     }
 
