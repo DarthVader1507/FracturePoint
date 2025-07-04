@@ -6,6 +6,7 @@ public class Portal : MonoBehaviour
     [SerializeField]private GameObject victoryPanel;
     [SerializeField]private AudioClip victorySound;
     private CountdownScript countdownScript;
+    private Health healthScript;
     public bool hasWon = false;
     private void Start()
     {
@@ -21,6 +22,8 @@ public class Portal : MonoBehaviour
         {
             victoryPanel.SetActive(false);
         }
+        hasWon = false;
+        healthScript = FindObjectOfType<Health>();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -37,6 +40,11 @@ public class Portal : MonoBehaviour
             }
             else if (SceneManager.GetActiveScene().name == "Level3")
             {
+                if (healthScript != null && healthScript.isDead)
+                {
+                    // If the player is dead, do not proceed to victory
+                    return;
+                }
                 // Show victory panel and play sound
                 countdownScript.gameStarted = false; // Stop the countdown
                 Time.timeScale = 0; // Pause the game

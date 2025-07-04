@@ -12,16 +12,18 @@ public class Health : MonoBehaviour
     [SerializeField] private Image currentHealthBar;
     [SerializeField] private Image totalHealthBar;
     private Animator anim;
+    [SerializeField] private GameObject deathPanel; // Panel to show when player dies
 
     private SpriteRenderer spriteRenderer;
     private CountdownScript countdownScript;
+    public bool isDead = false; // To check if the player is dead
     [Header ("Death Sound")]
     [SerializeField]private AudioClip deathSound;
     [SerializeField] private AudioClip hurtSound;
     public void TakeDamage(float damage)
     {
         currentHealth = Mathf.Clamp(currentHealth - damage, 0, startingHealth);
-        if (currentHealth > 0.1f)//Decimal point in Unity is not accurate, so we use 0.1f as a threshold
+        if (currentHealth > 0.01f)//Decimal point in Unity is not accurate, so we use 0.01f as a threshold
         {
             //Player lives,but is hurt
             anim.SetTrigger("Hurt");
@@ -36,6 +38,8 @@ public class Health : MonoBehaviour
             currentHealth = 0; // Ensure health does not go below zero
             GetComponent<PlayerMovement>().enabled = false; // Disable player movement
             SoundManager.instance.PlaySound(deathSound); // Play death sound
+            isDead = true; // Set the player as dead
+            deathPanel.SetActive(true); // Show the death panel
         }
         currentHealthBar.fillAmount = currentHealth; // Update health bar to reflect death
     }
@@ -45,6 +49,8 @@ public class Health : MonoBehaviour
         countdownScript = FindObjectOfType<CountdownScript>();
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        deathPanel.SetActive(false);
+        isDead = false; // Initialize isDead to false
     }
     private IEnumerator VulnerabilityCoroutine()
     {

@@ -8,17 +8,19 @@ public class PauseScript : MonoBehaviour
 {
     public GameObject pausePanel;
     private Portal portalScript;
+    private Health healthScript;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         pausePanel.SetActive(false);
         portalScript = FindObjectOfType<Portal>();
+        healthScript = FindObjectOfType<Health>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !portalScript.hasWon)
+        if (Input.GetKeyDown(KeyCode.Space) && !portalScript.hasWon && !healthScript.isDead)
         {
             if (pausePanel.activeSelf || Time.timeScale == 0)
             {
@@ -50,6 +52,7 @@ public class PauseScript : MonoBehaviour
         // Reset player state
         Health.currentHealth = 0.5f;
         portalScript.hasWon = false;
+        healthScript.isDead = false;
         PlayerMovement.jumpBoost = 0;
         SceneManager.LoadScene("Level1");
         Time.timeScale = 1;
@@ -61,6 +64,11 @@ public class PauseScript : MonoBehaviour
         {
             Destroy(bgMusic);
         }
+        // Reset player state
+        Health.currentHealth = 0.5f;
+        portalScript.hasWon = false;
+        healthScript.isDead = false;
+        PlayerMovement.jumpBoost = 0;
         SceneManager.LoadScene("Main Menu");
     }
     }
