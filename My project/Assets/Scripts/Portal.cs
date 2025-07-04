@@ -8,6 +8,7 @@ public class Portal : MonoBehaviour
     private CountdownScript countdownScript;
     private Health healthScript;
     public bool hasWon = false;
+    [SerializeField]private AudioClip transitionSound;
     private void Start()
     {
         // Find the CountdownScript in the scene
@@ -29,22 +30,26 @@ public class Portal : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            if (healthScript != null && healthScript.isDead)
+            {
+                // If the player is dead, do not allow teleportation
+                return;
+            }
             // Logic to teleport the player to another location
             if (SceneManager.GetActiveScene().name == "Level1")
             {
+                SoundManager.instance.PlaySound(transitionSound);
+                // Load the next level
                 SceneManager.LoadScene("Level2");
             }
             else if (SceneManager.GetActiveScene().name == "Level2")
             {
+                SoundManager.instance.PlaySound(transitionSound);
+                // Load the next level
                 SceneManager.LoadScene("Level3");
             }
             else if (SceneManager.GetActiveScene().name == "Level3")
             {
-                if (healthScript != null && healthScript.isDead)
-                {
-                    // If the player is dead, do not proceed to victory
-                    return;
-                }
                 // Show victory panel and play sound
                 countdownScript.gameStarted = false; // Stop the countdown
                 Time.timeScale = 0; // Pause the game

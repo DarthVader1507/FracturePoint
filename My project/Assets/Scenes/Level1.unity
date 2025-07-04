@@ -3735,6 +3735,7 @@ MonoBehaviour:
   victoryPanel: {fileID: 0}
   victorySound: {fileID: 0}
   hasWon: 0
+  transitionSound: {fileID: 8300000, guid: af62b59f6b85a41e597f4f6e22e9fd03, type: 3}
 --- !u!1 &627725533
 GameObject:
   m_ObjectHideFlags: 0

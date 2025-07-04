@@ -70,5 +70,6 @@ public class PauseScript : MonoBehaviour
         healthScript.isDead = false;
         PlayerMovement.jumpBoost = 0;
         SceneManager.LoadScene("Main Menu");
+        Time.timeScale = 1;
     }
-    }
+}
