@@ -21,11 +21,11 @@ public class TimerScript : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name == "Level2")
         {
-            timeLeft = 40f; // Set the timer for Level 2
+            timeLeft = 30f; // Set the timer for Level 2
         }
         else if (SceneManager.GetActiveScene().name == "Level3")
         {
-            timeLeft = 60f; // Set the timer for Level 3
+            timeLeft = 40f; // Set the timer for Level 3
             SetDoorSprites(false); // Disable the door sprites at the start of Level 3
             StartCoroutine(DoorTrap()); // Start the repeating trap
         }

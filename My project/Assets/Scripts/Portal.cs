@@ -3,6 +3,25 @@ using UnityEngine.SceneManagement;
 
 public class Portal : MonoBehaviour
 {
+    [SerializeField]private GameObject victoryPanel;
+    [SerializeField]private AudioClip victorySound;
+    private CountdownScript countdownScript;
+    public bool hasWon = false;
+    private void Start()
+    {
+        // Find the CountdownScript in the scene
+        countdownScript = FindObjectOfType<CountdownScript>();
+        if (countdownScript == null)
+        {
+            Debug.LogError("CountdownScript not found in the scene.");
+        }
+
+        // Ensure the victory panel is initially inactive
+        if (victoryPanel != null)
+        {
+            victoryPanel.SetActive(false);
+        }
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -15,6 +34,15 @@ public class Portal : MonoBehaviour
             else if (SceneManager.GetActiveScene().name == "Level2")
             {
                 SceneManager.LoadScene("Level3");
+            }
+            else if (SceneManager.GetActiveScene().name == "Level3")
+            {
+                // Show victory panel and play sound
+                countdownScript.gameStarted = false; // Stop the countdown
+                Time.timeScale = 0; // Pause the game
+                victoryPanel.SetActive(true);
+                SoundManager.instance.PlaySound(victorySound);
+                hasWon = true;
             }
         }
     }
