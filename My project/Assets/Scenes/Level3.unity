@@ -6169,6 +6169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 487366627}
+  buttonSound: {fileID: 8300000, guid: 2946d711599b4450a94489f9c9f8b8ee, type: 3}
 --- !u!114 &749040426
 MonoBehaviour:
   m_ObjectHideFlags: 0

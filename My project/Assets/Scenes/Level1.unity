@@ -7969,7 +7969,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.8
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -10542,6 +10542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 1389621207}
+  buttonSound: {fileID: 8300000, guid: 2946d711599b4450a94489f9c9f8b8ee, type: 3}
 --- !u!95 &1759167917
 Animator:
   serializedVersion: 7

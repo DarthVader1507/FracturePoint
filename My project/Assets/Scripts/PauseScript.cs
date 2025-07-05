@@ -9,6 +9,7 @@ public class PauseScript : MonoBehaviour
     public GameObject pausePanel;
     private Portal portalScript;
     private Health healthScript;
+    [SerializeField]private AudioClip buttonSound;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -41,9 +42,11 @@ public class PauseScript : MonoBehaviour
     {
         pausePanel.SetActive(false);
         Time.timeScale = 1;
+        SoundManager.instance.PlaySound(buttonSound);
     }
     public void Restart()
     {
+        SoundManager.instance.PlaySound(buttonSound);
         GameObject bgMusic = GameObject.Find("BgSound");
         if (bgMusic != null)
         {
@@ -59,6 +62,7 @@ public class PauseScript : MonoBehaviour
     }
     public void Exit()
     {
+        SoundManager.instance.PlaySound(buttonSound);
         GameObject bgMusic = GameObject.Find("BgSound");
         if (bgMusic != null)
         {
