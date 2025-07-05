@@ -5,6 +5,11 @@ public class MainMenuControl : MonoBehaviour
     [SerializeField] private GameObject MainScreen;
     [SerializeField] private GameObject TutorialScreen;
     [SerializeField] private GameObject ControlsScreen;
+    private void Start(){
+        MainScreen.SetActive(true);
+        TutorialScreen.SetActive(false);
+        ControlsScreen.SetActive(false);
+    }
     public void Play()
     {
         Time.timeScale = 1;
