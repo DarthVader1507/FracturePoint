@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      decay4_0: 5222780904863708798
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

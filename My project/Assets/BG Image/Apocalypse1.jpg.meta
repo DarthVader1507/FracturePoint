@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Apocalypse1_0: -1050186588627422217
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
