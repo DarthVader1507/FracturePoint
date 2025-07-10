@@ -12,6 +12,8 @@ public class VolumeSlider : MonoBehaviour
         // Set sliders to values from static class
         volumeSlider.value = VolumeSettings.Volume;
         bgMusicSlider.value = VolumeSettings.BGMusic;
+        volumeText.text = $"{volumeSlider.value * 100:F0}%";
+        bgMusicText.text = $"{bgMusicSlider.value * 100:F0}%";
 
         // Listen for changes
         volumeSlider.onValueChanged.AddListener(OnVolumeChanged);
