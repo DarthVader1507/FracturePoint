@@ -57,8 +57,8 @@ public class PauseScript : MonoBehaviour
         portalScript.hasWon = false;
         healthScript.isDead = false;
         PlayerMovement.jumpBoost = 0;
-        SceneManager.LoadScene("Level1");
         Time.timeScale = 1;
+        SceneManager.LoadScene("Level1");
     }
     public void Exit()
     {
@@ -73,7 +73,7 @@ public class PauseScript : MonoBehaviour
         portalScript.hasWon = false;
         healthScript.isDead = false;
         PlayerMovement.jumpBoost = 0;
-        SceneManager.LoadScene("Main Menu");
         Time.timeScale = 1;
+        SceneManager.LoadScene("Main Menu");
     }
 }

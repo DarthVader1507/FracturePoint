@@ -20,6 +20,10 @@ public class Health : MonoBehaviour
     [Header ("Death Sound")]
     [SerializeField]private AudioClip deathSound;
     [SerializeField] private AudioClip hurtSound;
+    private void Start()
+    {
+        Physics2D.IgnoreLayerCollision(10, 11, false); // Ensure collision is enabled at the start
+    }
     public void TakeDamage(float damage)
     {
         currentHealth = Mathf.Clamp(currentHealth - damage, 0, startingHealth);
